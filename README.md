@@ -1,129 +1,64 @@
-RAG Based Customer Support Assistant
-AI Engineer Intern – Take Home Assignment
+RAG CUSTOMER SUPPORT ASSISTANT
+This RAG system is designed for an Indian e-commerce environment, focusing on high-precision retrieval from company policies to provide grounded, hallucination-free responses.
 
-This project is a simple Retrieval-Augmented Generation (RAG) based customer support assistant designed for an Indian e-commerce company.
-It answers customer questions by retrieving information from company policy documents and generating grounded, safe, and structured responses.
+---
 
-The main focus of this project is prompt engineering, hallucination control, retrieval quality, and evaluation, as required in the assignment.
+KEY FEATURES
 
-What This Project Does
+* Context-Aware: Uses ChromaDB to fetch relevant policy sections.
+* Hallucination Control: Strict prompting ensures answers stay within document scope.
+* Safe Escalation: Directs out-of-scope queries to a grievance officer.
+* Structured Outputs: Responses are formatted for professional support standards.
 
-Loads company policy documents (refund, shipping, cancellation, etc.)
+---
 
-Converts them into embeddings and stores them in a vector database
+SYSTEM ARCHITECTURE
 
-Retrieves the most relevant information for a user query
+1. Ingestion: Documents split into chunks via sentence-transformers.
+2. Storage: Embeddings stored in ChromaDB vector store.
+3. Retrieval: Semantic search fetches top-k relevant policy chunks.
+4. Generation: Mistral-7B generates the final grounded response.
 
-Generates a clear, structured answer strictly from retrieved context
+---
 
-Safely refuses and escalates when information is not available
+SETUP & INSTALLATION
 
-How It Works (High Level)
-User Question  
-   ↓  
-Chroma Vector Search  
-   ↓  
-Relevant Policy Chunks  
-   ↓  
-Structured Prompt  
-   ↓  
-Mistral 7B LLM  
-   ↓  
-Final Answer / Safe Refusal
-
-Setup Instructions
-
-Clone the repository and create a virtual environment:
-
-git clone <your_repo_link>
+1. Clone Repository:
+git clone [https://github.com/ASufiyan7/RAG_assignment](https://github.com/ASufiyan7/RAG_assignment)
 cd RAG_assignment
+2. Setup Virtual Environment:
 python -m venv venv
-venv\Scripts\activate
-
-
-Install dependencies:
-
+source venv/bin/activate  # Use venv\Scripts\activate on Windows
+3. Install Requirements:
 pip install -r requirements.txt
-
-
-Add your HuggingFace token in a .env file:
-
+4. Configure Environment:
+Create a .env file and add:
 HUGGINGFACEHUB_API_TOKEN=your_token_here
-
-
-Run the system:
-
+5. Run:
 python main.py
 
-Prompt Engineering
+---
 
-Two prompt versions were designed and tested:
+EVALUATION RESULTS
 
-Prompt V1 (Initial)
-A basic prompt that instructed the model to answer only from the context.
+* Fully Answerable: Accurate & Grounded (Pass)
+* Partially Answerable: High Relevance (Pass)
+* Out of Scope: Safe Refusal/Escalation (Pass)
 
-Prompt V2 (Improved)
-The final prompt adds:
+---
 
-Strict hallucination prevention
+TECH STACK
 
-Structured answer format
+* LLM: Mistral-7B (HuggingFace)
+* Orchestration: LangChain
+* Vector DB: ChromaDB
+* Embeddings: Sentence-Transformers
+* Language: Python
 
-Professional refusal and escalation template
+---
 
-Clear bullet-point based answers
+FUTURE IMPROVEMENTS
 
-This significantly improved clarity and prevented incorrect or made-up responses.
-
-Evaluation
-
-An evaluation set of 7 questions was created, containing:
-
-Fully answerable questions
-
-Partially answerable questions
-
-Out-of-scope questions
-
-Question Type	Model Behavior
-Answerable	Returned accurate, grounded answers
-Partially Answerable	Gave acceptable responses using available context
-Out of Scope	Properly refused without hallucinating
-
-No hallucinations were observed during evaluation.
-
-Edge Case Handling
-
-If no relevant documents are found, the system returns a safe refusal message
-
-If the question is outside the policy knowledge base, it escalates to the grievance officer
-
-This ensures reliability and safety in real customer scenarios.
-
-Tech Stack
-
-Python
-
-LangChain
-
-ChromaDB
-
-HuggingFace Mistral 7B
-
-Sentence-Transformers
-
-What I’m Most Proud Of
-
-Designing a clean and simple RAG pipeline with strict hallucination control and clear evaluation evidence.
-
-What I Would Improve Next
-
-Given more time, I would add:
-
-Reranking for better retrieval accuracy
-
-JSON schema validation
-
-Automated evaluation scoring
-
-Basic logging and tracing
+* Implementation of Cross-Encoder Reranking.
+* JSON schema validation for structured data.
+* Integration with LangSmith for observability.
