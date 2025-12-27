@@ -1,4 +1,5 @@
 RAG CUSTOMER SUPPORT ASSISTANT
+
 This RAG system is designed for an Indian e-commerce environment, focusing on high-precision retrieval from company policies to provide grounded, hallucination-free responses.
 
 ---
@@ -24,6 +25,7 @@ SYSTEM ARCHITECTURE
 SETUP & INSTALLATION
 
 1. Clone Repository:
+
 git clone [https://github.com/ASufiyan7/RAG_assignment](https://github.com/ASufiyan7/RAG_assignment)
 cd RAG_assignment
 2. Setup Virtual Environment:
@@ -61,4 +63,5 @@ FUTURE IMPROVEMENTS
 
 * Implementation of Cross-Encoder Reranking.
 * JSON schema validation for structured data.
-* Integration with LangSmith for observability.
+* Basic logging and tracing for better observability.
+
