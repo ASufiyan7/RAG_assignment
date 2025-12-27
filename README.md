@@ -29,26 +29,15 @@ cd RAG_assignment
 
 2. Create a Virtual Environment
 python -m venv venv
-
-
 Activate it:
-
-Windows
-
-venv\Scripts\activate
-
-
-Linux / Mac
-
-source venv/bin/activate
+Windows -> venv\Scripts\activate
+Linux / Mac -> source venv/bin/activate
 
 3. Install Dependencies
 pip install -r requirements.txt
 
 4. Configure Environment Variables
-
 Create a .env file in the project root and add:
-
 HUGGINGFACEHUB_API_TOKEN=your_token_here
 
 5. Run the Application
