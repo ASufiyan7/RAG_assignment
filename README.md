@@ -22,21 +22,36 @@ SYSTEM ARCHITECTURE
 
 ---
 
-SETUP & INSTALLATION
-
-1. Clone Repository:
-
-git clone [https://github.com/ASufiyan7/RAG_assignment](https://github.com/ASufiyan7/RAG_assignment)
+Setup & Installation
+1. Clone the Repository
+git clone https://github.com/ASufiyan7/RAG_assignment
 cd RAG_assignment
-2. Setup Virtual Environment:
+
+2. Create a Virtual Environment
 python -m venv venv
-source venv/bin/activate  # Use venv\Scripts\activate on Windows
-3. Install Requirements:
+
+
+Activate it:
+
+Windows
+
+venv\Scripts\activate
+
+
+Linux / Mac
+
+source venv/bin/activate
+
+3. Install Dependencies
 pip install -r requirements.txt
-4. Configure Environment:
-Create a .env file and add:
+
+4. Configure Environment Variables
+
+Create a .env file in the project root and add:
+
 HUGGINGFACEHUB_API_TOKEN=your_token_here
-5. Run:
+
+5. Run the Application
 python main.py
 
 ---
